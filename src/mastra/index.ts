@@ -12,6 +12,9 @@ export const mastra = new Mastra({
     level: 'info',
   }),
   telemetry: {
-    enabled: false
+    enabled: false,
+    sampling: {
+      type: 'always_off'
+    }
   }
 });
