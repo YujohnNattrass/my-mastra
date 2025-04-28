@@ -182,4 +182,15 @@ const weatherWorkflow = new Workflow({
 
 weatherWorkflow.commit();
 
-export { weatherWorkflow };
+const anotherWorkflow = new Workflow({
+  name: 'another-workflow',
+  triggerSchema: z.object({
+    city: z.string().describe('The city to get the weather for'),
+  }),
+})
+  .step(fetchWeather)
+  .then(planActivities);
+
+anotherWorkflow.commit();
+
+export { weatherWorkflow, anotherWorkflow };

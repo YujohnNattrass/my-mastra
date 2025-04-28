@@ -19,3 +19,10 @@ export const weatherAgent = new Agent({
   model: openai('gpt-4o'),
   tools: { weatherTool },
 });
+
+export const anotherAgent = new Agent({
+  name: 'Another Agent',
+  instructions: 'You are a helpful assistant that provides information.',
+  model: openai('gpt-4o'),
+  tools: { weatherTool },
+})
