@@ -22,7 +22,10 @@ export const weatherAgent = new Agent({
 
 export const anotherAgent = new Agent({
   name: 'Another Agent',
-  instructions: 'You are a helpful assistant that provides information.',
+  instructions: ({ runtimeContext }) => {
+    const city = runtimeContext.get('city') || 'seattle';
+    return `You are a helpful assistant that provides information for ${city}.`;
+  },
   model: openai('gpt-4o'),
   tools: { weatherTool },
 })
