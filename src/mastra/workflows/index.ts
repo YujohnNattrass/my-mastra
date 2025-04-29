@@ -77,7 +77,6 @@ const planActivities = new Step({
       ${JSON.stringify(forecast, null, 2)}
       `;
 
-      console.log(`wtf`, mastra?.getAgents())
     const agent = mastra?.getAgent('weatherAgent')
     if (!agent) {
       throw new Error('Agent not found');
